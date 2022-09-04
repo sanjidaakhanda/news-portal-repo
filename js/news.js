@@ -38,7 +38,8 @@ const allCategories = async(category_id)=>{
 const url =`https://openapi.programming-hero.com/api/news/category/${category_id}`
 const res = await fetch(url)
 const data = await res.json()
-displayCategories(data.data)
+ displayCategories(data.data)
+
 
 }
 
@@ -66,6 +67,11 @@ categoriesDiv.innerHTML =`
               <img src="${category.author.img}" class="rounded-circle img-fluid w-25 h-25">
               <p>${category.author.name}</p>
               <p>${category.author.published_date}</p>
+
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-name">
+              Launch static backdrop modal
+            </button>
+
             </div>
           </div>
         </div> 
@@ -75,6 +81,17 @@ categoriesDiv.innerHTML =`
 categoriesContainer.appendChild(categoriesDiv)
     
 });
+const displayModal = categories=>{
+  const modalName = document.getElementById("modal-name")
+modalName.innerHTML=`
+
+
+
+
+`
+
+}
+
 
 
 }
