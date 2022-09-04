@@ -57,7 +57,7 @@ categoriesDiv.innerHTML =`
         
          <div class="row g-0">
           <div class="col-md-4">
-            <img src="${category.image_url}" class="img-fluid rounded-start h-" alt="...">
+            <img src="${category.image_url}" class="img-fluid rounded-start h-full" alt="...">
             
             
           </div>
