@@ -73,7 +73,7 @@ categoriesDiv.innerHTML =`
               <p>${category.author.published_date}</p>
 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-name">
-              Launch static backdrop modal
+              Show More
             </button>
 
             
@@ -85,6 +85,9 @@ categoriesDiv.innerHTML =`
           </div>
         </div> 
       </div>
+
+      
+      
 
 `
 categoriesContainer.appendChild(categoriesDiv)
