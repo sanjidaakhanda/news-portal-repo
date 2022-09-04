@@ -53,13 +53,11 @@ categories.forEach(category => {
     const categoriesDiv = document.createElement("div")
 categoriesDiv.classList.add('col')
 categoriesDiv.innerHTML =`
-<div class="card mb-3 ms-5" style="max-width:800px;">
+<div class="card mb-3 container" style="max-width:full;">
         
          <div class="row g-0">
           <div class="col-md-4">
-            <img src="${category.image_url}" class="img-fluid rounded-start h-full" alt="...">
-            
-            
+            <img src="${category.image_url}" class="img-fluid rounded-start h-" alt="...">
           </div>
           <div class="col-md-8">
             <div class="card-body">
