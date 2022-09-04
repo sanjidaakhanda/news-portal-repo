@@ -20,7 +20,7 @@ if (uniqueArray.indexOf( news.category_name) === -1){
 uniqueArray.push(news.category_name)
 const li = document.createElement('li')
 li.innerHTML =`
-<a class="ms-5" onclick = "allcategories('${news.category_id}')">${news.category_name}</a>
+<a class="ms-5" onclick = "allCategories('${news.category_id}')">${news.category_name}</a>
 
 `
 menu.appendChild(li)
@@ -35,31 +35,29 @@ menu.appendChild(li)
 
 
 const allCategories = async(category_id)=>{
-const url =`https://openapi.programming-hero.com/api/news/category/08`
+const url =`https://openapi.programming-hero.com/api/news/category/${category_id}`
 const res = await fetch(url)
 const data = await res.json()
 displayCategories(data.data)
 
-
 }
 
-
-allCategories()
+//  allCategories()
  
 
 const displayCategories = categories=>{
 
 const categoriesContainer = document.getElementById("category-field")
-
+categoriesContainer.innerHTML = ``
 categories.forEach(category => {
     const categoriesDiv = document.createElement("div")
 categoriesDiv.classList.add('col')
 categoriesDiv.innerHTML =`
-<div class="card mb-3 ms-5" style="max-width:full;">
+<div class="card mb-3 ms-5" style="max-width:800px;">
         
          <div class="row g-0">
           <div class="col-md-4">
-            <img src="${category.image_url}" class="img-fluid rounded-start h-400px" alt="...">
+            <img src="${category.image_url}" class="img-fluid rounded-start h-" alt="...">
             
             
           </div>
@@ -67,8 +65,8 @@ categoriesDiv.innerHTML =`
             <div class="card-body">
               <h5 class="card-title">${category.title}</h5>
               <p class="card-text">${category.details.slice(0,250)} </p>
-              <img src="${category.author.img}" class="rounded-circle img-fluid h-10px w-10px">
-              <span>${category.author.name}</span>
+              <img src="${category.author.img}" class="rounded-circle img-fluid w-25 h-25">
+              <p>${category.author.name}</p>
               <p>${category.author.published_date}</p>
             </div>
           </div>
@@ -82,6 +80,10 @@ categoriesContainer.appendChild(categoriesDiv)
 
 
 }
+
+
+
+
 
 
 
