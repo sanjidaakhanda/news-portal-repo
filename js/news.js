@@ -49,7 +49,11 @@ const data = await res.json()
 const displayCategories = categories=>{
 
 const categoriesContainer = document.getElementById("category-field")
+
+
+
 categoriesContainer.innerHTML = ``
+
 categories.forEach(category => {
     const categoriesDiv = document.createElement("div")
 categoriesDiv.classList.add('col')
@@ -64,13 +68,18 @@ categoriesDiv.innerHTML =`
             <div class="card-body">
               <h5 class="card-title">${category.title}</h5>
               <p class="card-text">${category.details.slice(0,250)} </p>
-              <img src="${category.author.img}" class="rounded-circle img-fluid w-25 h-25">
-              <p>${category.author.name}</p>
+              <img src="${category.author.img }" class="rounded-circle img-fluid w-25 h-25">
+              <p>${category.author.name ? category.author.name : 'No name found'}</p>
               <p>${category.author.published_date}</p>
 
               <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-name">
               Launch static backdrop modal
             </button>
+
+            
+            
+            
+
 
             </div>
           </div>
@@ -81,22 +90,29 @@ categoriesDiv.innerHTML =`
 categoriesContainer.appendChild(categoriesDiv)
     
 });
-const displayModal = categories=>{
-  const modalName = document.getElementById("modal-name")
-modalName.innerHTML=`
+// const displayModal = async(category)=>{
+//  const modalName = document.getElementById("modal-name")
+//  modalName.innerHTML=`
+//  <img src="${category.image_url}" class="img-fluid rounded-start h-" alt="...">
+//  <p>  >${category.details.slice(0,250)}  </p>
 
 
 
+//  `
 
+// }
+
+// displayModal(category.title)
+
+}
+ const displayModal = async(category)=>{
+ const modalName = document.getElementById("modal-name")
+  modalName.innerHTML=`
+  <img src="${category.image_url}" class="img-fluid rounded-start h-" alt="...">
+  <p>  >${category.details.slice(0,250)}  </p>
 `
 
-}
-
-
-
-}
-
-
+ }
 
 
 
